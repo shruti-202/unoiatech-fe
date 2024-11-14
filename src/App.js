@@ -17,21 +17,21 @@ const App = () => {
       alert("Please enter a URL.");
       return;
     }
-
+  
     let formattedUrl = url;
     if (!/^https?:\/\//i.test(url)) {
       formattedUrl = `http://${url}`;
     }
-
+  
     try {
-      const response = await fetch("http://localhost:5000/api/scrape", {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/scrape`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ url: formattedUrl }),
       });
-
+  
       if (response.ok) {
         const data = await response.json();
         setCompanies((prevCompanies) => [...prevCompanies, data]);
@@ -44,13 +44,13 @@ const App = () => {
       alert(`An error occurred: ${error.message}`);
     }
   };
-
+  
   const loadCompanies = async () => {
-    const response = await fetch("/api/companies");
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/companies`);
     const data = await response.json();
     setCompanies(data);
   };
-
+  
   const handleDelete = async () => {
     await fetch("/api/companies", {
       method: "DELETE",
