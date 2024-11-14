@@ -1,0 +1,40 @@
+.search-bar-container {
+  display: flex;
+  gap: 60px;
+  padding: 10px;
+  border-radius: 8px;
+  width: 40%;
+}
+
+.input-container {
+  position: relative;
+  flex: 1;
+}
+
+.input-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ccc;
+  font-size: 16px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 10px 10px 32px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.fetch-button {
+  padding: 10px 16px;
+  background-color: #e5b5ea;
+  color: #7d16ad;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
